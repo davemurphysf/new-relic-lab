@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: storage-settings
+  namespace: default
+data:
+  BUCKET_NAME: "new-relic-lab-storage"
+  PROJECT_ID: "new-relic-lab" 

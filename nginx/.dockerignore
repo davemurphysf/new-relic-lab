@@ -1,0 +1,5 @@
+*.yml
+*.log
+nr-app/node_modules/*
+nr-app/public/*
+nr-app/src/*

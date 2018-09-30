@@ -1,0 +1,16 @@
+{
+  "name": "node-api",
+  "version": "1.0.2",
+  "description": "New Relic Lab - Node API",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Dave Murphy",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "2.0.3",
+    "express": "4.16.3",
+    "newrelic": "4.8.1",
+    "pg": "7.4.3",
+    "redis": "2.8.0"
+  }
+}
