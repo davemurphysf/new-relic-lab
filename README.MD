@@ -19,7 +19,9 @@ NOTE: There is no authorization/authentication at all in this setup; it is purel
 
 In order for the managed database to be reachable from GKE, you need to do two things (in order):
 1. [Follow the directions here](https://cloud.google.com/sql/docs/postgres/connect-kubernetes-engine) to create a sidecar proxy connection
-2. Ensure that the GKE cluster itself has the appropriate service access permissions to access Cloud SQL
+2. Ensure that the GKE cluster itself has the appropriate service access permissions to access Cloud SQL.
+
+
    If you forget to do this when you create the cluster, you will need to create a new node pool with the correct permissions and then move the pods over from the original node pool.  Here is an example command to create a new node pool with the correct SQL permissions
    ```
    gcloud container node-pools create cluser-a \
