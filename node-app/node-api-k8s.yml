@@ -48,7 +48,7 @@ spec:
             mountPath: /secrets/cloudsql
             readOnly: true
       - name: api
-        image: us.gcr.io/new-relic-lab/node-api:v1.0.18
+        image: us.gcr.io/new-relic-lab/node-api:v1.0.20
         ports:
         - containerPort: 3000
         resources:

@@ -1,6 +1,7 @@
 const newrelic = require('newrelic');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const { Storage } = require('@google-cloud/storage');
 const bucketName = process.env.BUCKET_NAME;
@@ -56,9 +57,35 @@ const CUSTOM_PARAMETERS = {
     'K8S_POD_TIER': process.env.K8S_POD_TIER
 };
 
+app.use(cors());
+
 app.use(function (req, res, next) {
     START_TIME = Date.now();
     newrelic.addCustomAttributes(CUSTOM_PARAMETERS);
+    next();
+});
+
+app.use(function (req, res, next) {
+    newrelic.incrementMetric('Custom/demo/TotalRequests');
+    switch (req.method) {
+        case 'GET':
+            newrelic.incrementMetric('Custom/demo/GETs');
+            break;
+        case 'POST':
+            newrelic.incrementMetric('Custom/demo/POSTs');
+            break;
+        case 'DELETE':
+            newrelic.incrementMetric('Custom/demo/DELETEs');
+            break;
+        default:
+    }
+    const customHeader = req.get('x-custom-secret-header');
+
+    if (customHeader) {
+        newrelic.incrementMetric('Custom/demo/' + customHeader);
+    } else {
+        newrelic.incrementMetric('Custom/demo/MissingHeader');
+    }
     next();
 });
 

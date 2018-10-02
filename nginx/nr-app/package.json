@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "@types/react-bootstrap": "0.32.14",
+    "axios": "0.18.0",
+    "react": "16.5.2",
+    "react-bootstrap": "0.32.4",
+    "react-dom": "16.5.2",
+    "react-router": "4.3.1",
     "react-scripts-ts": "3.1.0"
   },
   "scripts": {
@@ -14,10 +18,12 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.2",
-    "@types/node": "^10.11.3",
-    "@types/react": "^16.4.14",
-    "@types/react-dom": "^16.0.8",
-    "typescript": "^3.1.1"
+    "@types/jest": "23.3.2",
+    "@types/node": "10.11.3",
+    "@types/react": "16.4.14",
+    "@types/react-dom": "16.0.8",
+    "@types/react-router": "4.0.31",
+    "@types/react-router-dom": "4.3.1",
+    "typescript": "3.1.1"
   }
 }

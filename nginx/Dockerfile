@@ -1,17 +1,5 @@
 FROM nginx:1.15
 
-WORKDIR /tmp
-
-RUN set -x \
-	&& apt-get update \
-    && apt-get install --no-install-recommends --no-install-suggests -y python python-daemon python-setproctitle
-
-COPY nginx-nr-agent_2.0.0-11_all.deb .
-
-RUN ["dpkg", "-i", "nginx-nr-agent_2.0.0-11_all.deb"]
-
-RUN ["apt-get", "install", "-f"]
-
 WORKDIR /app
 
 COPY nginx-nr-agent.ini /etc/nginx-nr-agent/nginx-nr-agent.ini
